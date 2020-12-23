@@ -6,6 +6,7 @@ The repaired networks are capable of mitigating effects caused by backdoors. Our
 By comparing output before and after repairing, We are also able to detect poisoned images containing triggers for backdoors in a netowrk.
 
 ##Usage
+
 ### Run on Colab
 To run it on colab simply click the link associated with the <code>ipynb</code> file. You can either save it on your google drive
 or directly run it after you open the file on a webpage. There is no additional setup. The dependencies, model are loaded
