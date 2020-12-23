@@ -183,12 +183,14 @@ def main():
     preds_repaired = []
     pred = repaired_model.predict(test_clean['data'])
     preds_repaired.append(pred)
-    print(validate_model(yTest, pred))
+    print("Validating repaired model with test data: ", validate_model(yTest, pred))
 
     final_result = poisoned_detection(preds_repaired, preds_preprocessed)
+    print("Done")
 
     # clear session to save RAM
     tf.keras.backend.clear_session()
+    print("RAM cleaned")
 
 
 if __name__ == '__main__':
