@@ -112,13 +112,11 @@ def main():
     print(bad_net_name, " is loaded")
     model.summary()
 
-    # evaluate model on poison data:
-    predClean = m.predict(xTest)
-    predSG = m.predict(xSG)
-    predAnon = m.predict(xAnon)
+   # evaluate model on poison data:
+    predClean = model.predict(xTest)
+    predSG = model.predict(xSG)
     print("badnet", bad_net_name, "accuracy on clean test set: ", validate_model(predClean, yTest))
-    print("badnet", bad_net_name, "accuracy on sunglass poisoned set: ", validate_model(predSG, ySG))
-    print("badnet", bad_net_name, "accuracy on anonumous poisoned set: ", validate_model(predAnon, yAnon))
+    print("badnet", bad_net_name, "accuracy on poisoned set: ", validate_model(predSG, ySG))
 
     # Save pre-repaired results for later poisoned image detection.
     preds_preprocessed = []  ##test result of the badnets before repair
