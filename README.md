@@ -29,6 +29,7 @@ Numpy 1.16.3 \
 Matplotlib 2.2.2 \
 H5py 2.9.0 \
 TensorFlow-gpu 1.15.2 \
+tensorflow-model-optimization 0.5.0 \
 glob2 0.7 
 
 The remainder is the same as running it on Colab enviroment. 
@@ -39,3 +40,24 @@ The badnets are repaired using only <code>clean_validation_data.h5</code>. The r
 By default, we use <code>anonymous_1_poisoned_data.h5</code> as an input to all repaired models. You can use your own
 dataset as well. The output of the models are numpy arrays of vectorized labels. Each label has a shape of <code>(1284,)</code>, where index
 1283 is set to be 1 if the image is determined to be poisoned. 
+
+## Evaluate
+
+Four evaluation scripts are presented in this repo, each corresponds to a provided batnet. 
+
+```
+MLinCyberSecurityProject/
+    --anon1_eval.py
+    --anon2_eval.py
+    --multi_trigger_eval.py
+    --sunglasses_eval.py
+```
+
+Each script takes a image as input and print predicted class from the repaired net. The poisoned image will be predicted
+1283. Two images in PNG format are presented for testing under the same directory. The clean image is extracted from the
+clean test set. The other is extracted from anon_poisoned set. 
+
+Sample run:
+
+<code>python anon2_eval.py clean.png</code>
+ 
